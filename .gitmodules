@@ -1,0 +1,3 @@
+[submodule "ansible_create_user"]
+	path = ansible_create_user
+	url = https://github.com/nickgreensgithub/ansible_create_user.git
