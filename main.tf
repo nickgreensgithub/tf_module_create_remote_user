@@ -36,8 +36,8 @@ resource "null_resource" "create_new_remote_user" {
 
     //making an ansible user and setting its ssh key
     #TODO pass variables to playbook for user to create
-    provisioner "local-exec" {
-        command = "ansible-playbook -i ${var.connection.ip}, /mnt/files/automation/ansible/playbooks/create_ansible_user/main.yml --private-key ${var.connection.private_key} --user ${var.connection.user}"
+    provisioner "local-exec" {#TODO update with git path
+        command = "ansible-playbook -i ${var.connection.ip}, ./ansible_create_user/create_user.yml --private-key ${var.connection.private_key} --user ${var.connection.user}"
         //TODO can this be a relative path?
     }    
 }
