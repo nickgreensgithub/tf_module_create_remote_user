@@ -1,6 +1,6 @@
 variable "connection" {
 type = object({
-    ip = string
+    ip =string
     user=string
     private_key=string
 })
@@ -18,12 +18,8 @@ variable "user"{
     })
 } 
 
+
 resource "null_resource" "create_new_remote_user" {
-
-    triggers = {
-        vm_ids = join(",", var.vm_ids)
-    }
-
     //remote exec required to delay running of local-exec provisioner below until machine is available
     provisioner "remote-exec" {
         connection {
@@ -33,7 +29,6 @@ resource "null_resource" "create_new_remote_user" {
         } 
         inline = ["echo 'connected!'"]
     }
-
     //making an ansible user and setting its ssh key
     #TODO pass variables to playbook for user to create
     provisioner "local-exec" {
