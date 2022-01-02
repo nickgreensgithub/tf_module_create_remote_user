@@ -6,9 +6,9 @@ type = object({
 })
 } 
 
-variable "vm_ids" {
-    type=list(string)
-}
+# variable "vm_ids" {
+#     type=list(string)
+# }
 
 variable "user"{
     type = object({
