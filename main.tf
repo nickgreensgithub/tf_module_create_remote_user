@@ -25,7 +25,7 @@ resource "null_resource" "create_new_remote_user" {
         connection {
             host = var.connection.ip
             user = var.connection.user
-            private_key = file(var.connection.private_key)
+            private_key = var.connection.private_key
         } 
         inline = ["echo 'connected!'"]
     }
